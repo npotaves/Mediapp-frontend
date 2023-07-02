@@ -1,0 +1,16 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title> <mat-icon>account_circle</mat-icon>  {{username}} </mat-card-title>
+        <mat-card-subtitle>
+          <mat-list class="horizontal-mat-list-item">
+          <mat-list-item  *ngFor="let r of rolname">          
+              |     {{r.name}}             
+          </mat-list-item>
+        </mat-list>
+        </mat-card-subtitle>
+       
+        <img mat-card-lg-image src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/330px-User_icon_2.svg.png" >
+      </mat-card-title-group>
+    </mat-card-header>
+</mat-card>

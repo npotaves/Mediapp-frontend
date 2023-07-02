@@ -1,0 +1,46 @@
+<mat-dialog-content>
+    <mat-toolbar>
+        <span>Patient Dialog</span>
+    </mat-toolbar>
+    <form class="example-container" [formGroup]="form" (submit)="operate()">
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="First Name" formControlName="firstName"  minlength="3" required >
+            <small *ngIf="f['firstName'].errors?.['required'] && f['firstName'].touched" class="invalid">Is required</small>
+            <small *ngIf="f['firstName'].errors?.['minlength'] && f['firstName'].touched" class="invalid">Minlength is 3</small>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Lastname" minlength="3" required formControlName="lastName">
+            <small *ngIf="f['lastName'].errors?.['required'] && f['lastName'].touched" class="invalid">Is required</small>
+            <small *ngIf="f['lastName'].errors?.['minlength'] && f['lastName'].touched" class="invalid">Minlength is 3</small>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Email" email="true" formControlName="email" required>
+            <small *ngIf="f['email'].errors?.['required'] && f['email'].touched" class="invalid">Is required</small>
+            <small *ngIf="f['email'].errors?.['email'] && f['email'].touched" class="invalid">Email invalid</small>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Dni" required maxlength="8" formControlName="dni">
+            <small *ngIf="f['dni'].errors?.['required'] && f['dni'].touched" class="invalid">Is required</small>
+            <small *ngIf="f['dni'].errors?.['maxlength'] && f['dni'].touched" class="invalid">Maxlength is 8</small>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Address"  formControlName="address">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput placeholder="Phone" pattern="[0-9]+"  maxlength="9" formControlName="phone" required>
+            <small *ngIf="f['phone'].errors?.['required'] && f['phone'].touched" class="invalid">Is required</small>
+            <small *ngIf="f['phone'].errors?.['pattern'] && f['phone'].touched" class="invalid">Is invalid</small>
+            <small *ngIf="f['phone'].errors?.['maxlength'] && f['phone'].touched" class="invalid">Maxlength is 9</small>
+        </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Done</button>
+    <button mat-raised-button color="accent" (click)="close()">Cancel</button>
+</form>
+</mat-dialog-content>
+
